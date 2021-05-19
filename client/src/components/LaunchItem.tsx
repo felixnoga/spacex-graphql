@@ -1,14 +1,22 @@
-import { fromPromise } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
 interface ILaunch {
-  id?: string;
-  flight_number?: number;
-  name?: string;
-  date_local?: string;
-  success?: boolean;
-  rocket?: string;
+  launch: {
+    id: string;
+    flight_number: number;
+    name: string;
+    date_local: string;
+    success: boolean;
+    rocket: string;
+    details: string;
+    links: {
+      patch: {
+        small: string;
+        large: string;
+      };
+    };
+  };
 }
 
 const LaunchItem = ({
@@ -22,7 +30,7 @@ const LaunchItem = ({
     details,
     links,
   },
-}) => {
+}: ILaunch): JSX.Element => {
   return (
     <div className="card card-body mb-1 col-lg-3 col-md-5  mx-1 d-flex flex-column">
       <div className="card-title">
