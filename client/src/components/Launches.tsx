@@ -2,6 +2,7 @@ import React from 'react';
 import { gql, useQuery } from '@apollo/client';
 import LaunchItem from './LaunchItem';
 
+// Query to retrieve launches
 const LAUNCHES_QUERY = gql`
   query LaunchesQuery {
     launches {
